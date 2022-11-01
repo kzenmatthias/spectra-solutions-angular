@@ -1,0 +1,13 @@
+<app-navigation [format]="format"></app-navigation>
+
+<button (click)="changeGrid('flex')">Flex voor nav</button>
+<button (click)="changeGrid('grid')">Grid voor nav</button>
+
+<div *ngIf="visible">
+  <img
+    *ngFor="let image of images"
+    [attr.src]="image.url"
+    [attr.alt]="image.alt"
+    width="500"
+  />
+</div>
