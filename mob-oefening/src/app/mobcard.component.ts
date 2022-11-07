@@ -10,8 +10,15 @@ import { IMob, Behavior } from './mob';
       {{ mob.name }} <span class="behavior">{{ mob.behavior }}</span>
     </h2>
     <div class="healthpoints">
-      <ng-container *ngFor="let _ of [].constructor(mob.healthPoints)">
+      <ng-container *ngIf="mob.healthPoints < 20">
+        <ng-container *ngFor="let _ of [].constructor(mob.healthPoints)">
+          <img src="/assets/heart.png" alt="heart" width="20" />
+        </ng-container>
+      </ng-container>
+      <ng-container *ngIf="mob.healthPoints > 20">
+        {{ mob.healthPoints }}x
         <img src="/assets/heart.png" alt="heart" width="20" />
+        &nbsp; !!!!DANGER!!!!
       </ng-container>
     </div>
   </div>`,
