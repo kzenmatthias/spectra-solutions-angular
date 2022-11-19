@@ -1,15 +1,21 @@
 <h1>Minecraft mobs</h1>
 
-<h2>{{ showBehavior }} mobs</h2>
+<ng-container *ngIf="medium$ | async; else nomedium">
+  <h2>{{ showBehavior }} mobs</h2>
 
-<ng-container *ngFor="let mob of mobs">
-  <ng-container *appIfBehavior="mob; showbehavior: showBehavior">
+  <ng-container *ngFor="let mob of mobs">
+    <ng-container *appIfBehavior="mob; showbehavior: showBehavior">
+      <app-mobcard [mob]="mob"></app-mobcard>
+    </ng-container>
+  </ng-container>
+
+  <h2>All mobs</h2>
+
+  <ng-container *ngFor="let mob of mobs">
     <app-mobcard [mob]="mob"></app-mobcard>
   </ng-container>
 </ng-container>
 
-<h2>All mobs</h2>
-
-<ng-container *ngFor="let mob of mobs">
-  <app-mobcard [mob]="mob"></app-mobcard>
-</ng-container>
+<ng-template #nomedium>
+  <p>WTF, uw scherm is niet medium width??</p>
+</ng-template>

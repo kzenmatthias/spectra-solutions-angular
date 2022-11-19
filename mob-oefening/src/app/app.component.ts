@@ -1,4 +1,6 @@
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component } from '@angular/core';
+import { map, Observable } from 'rxjs';
 import { IMob, Behavior } from './mob';
 
 @Component({
@@ -73,4 +75,12 @@ export class AppComponent {
       healthPoints: 8,
     },
   ];
+
+  public medium$: Observable<boolean>;
+
+  public constructor(breakpointobserver: BreakpointObserver) {
+    this.medium$ = breakpointobserver
+      .observe(Breakpoints.Medium)
+      .pipe(map((x) => x.matches));
+  }
 }

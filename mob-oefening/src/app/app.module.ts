@@ -6,9 +6,11 @@ import { AppComponent } from './app.component';
 import { WikiDirective } from './wiki.directive';
 import { IfBehavior } from './ifbehavior.directive';
 
+import { LayoutModule } from '@angular/cdk/layout';
+
 @NgModule({
   declarations: [AppComponent, MobCardComponent, WikiDirective, IfBehavior],
-  imports: [BrowserModule],
+  imports: [BrowserModule, LayoutModule],
   providers: [],
   bootstrap: [AppComponent],
 })
