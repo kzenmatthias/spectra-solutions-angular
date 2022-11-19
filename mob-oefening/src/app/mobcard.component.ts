@@ -5,7 +5,7 @@ import { IMob, Behavior } from './mob';
   selector: 'app-mobcard',
   styleUrls: ['./mobcard.component.scss'],
   template: ` <div class="card" wikidirective [searchTerm]="mob.name">
-    <img src="{{ mob.picture }}" width="50" class="mobhead" />
+    <img [src]="mob.picture" width="50" class="mobhead" />
     <h2>
       {{ mob.name }} <span class="behavior">{{ mob.behavior }}</span>
     </h2>

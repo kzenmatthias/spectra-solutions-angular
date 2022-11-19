@@ -1,22 +1,20 @@
 import { Directive, HostListener, Input, OnInit } from '@angular/core';
+import { WindowRef } from './window.ref';
 
 @Directive({
   selector: '[wikidirective]',
 })
-export class WikiDirective implements OnInit {
+export class WikiDirective {
   @Input() public searchTerm: String = 'Creeper';
 
-  constructor() {}
+  public constructor(private _windowRef: WindowRef) {
 
-  ngOnInit() {}
+  }
 
-  @HostListener('click', ['$event'])
-  clickEvent(event: {
-    preventDefault: () => void;
-    stopPropagation: () => void;
-  }) {
+  @HostListener('click')
+  public clickEvent() {
     console.log('Click from Host Element!');
-    window.open(
+    this._windowRef.nativeWindow.open(
       'https://minecraft.fandom.com/wiki/' + this.searchTerm,
       '_blank'
     );
