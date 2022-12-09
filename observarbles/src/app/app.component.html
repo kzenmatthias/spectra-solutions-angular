@@ -1,0 +1,7 @@
+<h1 *ngIf="medium$ | async; else nomedium">Het is een medium!</h1>
+
+<ng-template #nomedium>
+  <h1>Het is geen medium ...</h1>
+</ng-template>
+
+{{ medium$ | async }}
